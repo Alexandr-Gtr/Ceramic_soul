@@ -1,0 +1,99 @@
+@use "/src/sass/base/variables.scss" as *;
+
+.works {
+  padding-top: 60px;
+  padding-bottom: 35px;
+  &__wrapper {
+    position: relative;
+  }
+  &__slider {
+    margin-top: 40px;
+  }
+  .swiper-slide img {
+    width: 100%;
+  }
+  .works__slider-nav {
+    display: none;
+  }
+  #pagination {
+    bottom: -35px;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: $dark;
+    border-radius: 0%;
+    opacity: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: $ceramic;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .works {
+    .swiper-slide img {
+      width: 400px;
+      margin: 0 auto;
+      display: block;
+    }
+    &__slider {
+      margin-top: 45px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .works {
+    padding-bottom: 30px;
+    &__slider {
+      margin-top: 80px;
+    }
+    .swiper-slide img {
+      width: 100%;
+      margin: 0;
+    }
+    #swiper {
+      margin-left: 40px;
+      margin-right: 40px;
+      bottom: 0px;
+    }
+    .works__slider-nav {
+      position: absolute;
+      display: block;
+      font-size: 21px;
+      top: 50%;
+      transform: translateY(-50%);
+      &:before {
+        width: auto;
+        margin: 0;
+      }
+    }
+    .icon-left-open {
+      left: 13px;
+    }
+    .icon-right-open {
+      right: 13px;
+    }
+    #pagination {
+      bottom: -30px;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .works {
+    padding-top: 100px;
+    #swiper {
+      margin-left: 85px;
+      margin-right: 85px;
+    }
+    .icon-left-open {
+      left: 40px;
+    }
+    .icon-right-open {
+      right: 40px;
+    }
+  }
+}
