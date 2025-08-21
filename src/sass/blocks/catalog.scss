@@ -12,7 +12,7 @@
     flex-wrap: wrap;
     margin-top: 60px;
     border: 1px solid $dark;
-    padding: 13px 35px;
+    padding: 13px 25px;
   }
   &__tab {
     position: relative;
@@ -33,6 +33,123 @@
       height: 1px;
       background-color: black;
       bottom: -1px;
+    }
+  }
+  &__content {
+    margin-top: 60px;
+    &-item {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+  &__card {
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+    &-img {
+      width: 100%;
+    }
+    &-info {
+      border: 1px solid $dark;
+      border-top: none;
+      padding: 11px 12px 17px 12px;
+    }
+    &-name {
+      color: rgba(0, 0, 0, 1);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+    &-price {
+      margin-top: 8px;
+      color: rgba(0, 0, 0, 1);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .catalog {
+    &__tabs {
+      width: 460px;
+    }
+    &__content {
+      position: relative;
+      padding: 10px;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 1px;
+        background-color: $dark;
+        left: 0;
+        top: 0;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 200px;
+        background-color: $dark;
+        left: 0;
+        top: 0;
+      }
+      &-item {
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        row-gap: 20px;
+        column-gap: 20px;
+      }
+    }
+    &__card {
+      width: 340px;
+      min-width: 275px;
+      &-img {
+        height: 198px;
+        object-fit: cover;
+      }
+      &-price {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .catalog {
+    &__content {
+      padding: 25px;
+      &-item {
+        row-gap: 35px;
+        column-gap: 35px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .catalog {
+    padding-top: 40px;
+    &__content {
+      &__title {
+        margin-top: 100px;
+      }
+      &-item {
+        row-gap: 25px;
+        column-gap: 83px;
+      }
+    }
+    &__card {
+      width: 285px;
+      min-height: 250px;
+      &-img {
+        height: 180px;
+      }
     }
   }
 }
