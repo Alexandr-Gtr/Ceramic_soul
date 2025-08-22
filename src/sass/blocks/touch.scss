@@ -2,6 +2,16 @@
 
 .touch {
   padding-top: 60px;
+  .just-validate-error-field {
+    border: none;
+    outline: 1px solid $ui-error;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: $dark;
+    -webkit-box-shadow: 0 0 0px 40rem $light inset;
+  }
   &__img {
     display: none;
   }
@@ -92,6 +102,7 @@
       position: absolute;
       bottom: 0px;
       right: 0px;
+      animation: RightRotate 2s ease-in-out infinite;
     }
     &__wrapper {
       margin-top: 45px;

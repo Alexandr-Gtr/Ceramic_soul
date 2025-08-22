@@ -1,5 +1,6 @@
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
+import JustValidate from "just-validate";
 
 import "/src/sass/style.scss";
 import "swiper/css";
@@ -64,4 +65,120 @@ try {
 
   // Показываем первый контент при загрузке
   contents.forEach((c, i) => (c.style.display = i === 0 ? "flex" : "none"));
+} catch (e) {}
+
+try {
+  const validator = new JustValidate("#touch__form");
+  validator
+    .addField("#name", [
+      {
+        rule: "required",
+        errorMessage: "Fill the name",
+      },
+      {
+        rule: "minLength",
+        value: 2,
+        errorMessage: "Min 2 char!",
+      },
+    ])
+    .addField("#email", [
+      {
+        rule: "required",
+      },
+      {
+        rule: "email",
+      },
+    ])
+    .addField(
+      "#question",
+      [
+        {
+          rule: "required",
+        },
+        {
+          rule: "minLength",
+          value: 5,
+        },
+      ],
+      {
+        errorsContainer: document
+          .querySelector("#question")
+          .parentElement.querySelector(".error-message"),
+      }
+    )
+    .addField(
+      "#checkbox",
+      [
+        {
+          rule: "required",
+        },
+      ],
+      {
+        errorsContainer: document
+          .querySelector("#checkbox")
+          .parentElement.parentElement.querySelector(".checkbox-error-message"),
+      }
+    )
+    .onSuccess((event) => {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+
+      fetch("https://httpbin.org/post", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Success", data);
+          form.reset();
+        });
+    });
+} catch (e) {}
+
+try {
+  const validatorfooter = new JustValidate(".footer__form");
+  validatorfooter
+    .addField(
+      "#footer__input",
+      [
+        {
+          rule: "required",
+        },
+        {
+          rule: "email",
+        },
+      ],
+      {
+        errorsContainer: document
+          .querySelector("#footer__input")
+          .parentElement.querySelector(".footer-error-email"),
+      }
+    )
+    .addField(
+      "#footer__checkbox",
+      [
+        {
+          rule: "required",
+        },
+      ],
+      {
+        errorsContainer: document
+          .querySelector("#footer__checkbox")
+          .parentElement.parentElement.querySelector(".footer-error-checkbox"),
+      }
+    )
+    .onSuccess((event) => {
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+
+      fetch("https://httpbin.org/post", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Success", data);
+          form.reset();
+        });
+    });
 } catch (e) {}

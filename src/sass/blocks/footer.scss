@@ -1,6 +1,18 @@
 @use "/src/sass/base/variables.scss" as *;
 
 .footer {
+  .just-validate-error-field {
+    border-color: $ui-error;
+    &::placeholder {
+      color: $ui-error;
+    }
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: $light;
+    -webkit-box-shadow: 0 0 0px 40rem $dark inset;
+  }
   margin-top: 60px;
   padding: 50px 0;
   background-color: $dark;
@@ -9,7 +21,6 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 100%;
-    letter-spacing: 0%;
     text-align: left;
     text-transform: uppercase;
   }
@@ -19,7 +30,6 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 100%;
-    letter-spacing: 0%;
     text-align: left;
   }
   &__form {
@@ -45,6 +55,9 @@
       font-weight: 400;
       line-height: normal;
       color: $ui-active;
+    }
+    &:focus-visible {
+      outline: $dark;
     }
   }
   &__label {
